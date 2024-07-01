@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import Shops from './pages/Shops';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CancelBooking from './pages/CancelBooking';
+import Chat from './pages/Chat';
+import ReportMissingBag from './pages/ReportMissingBag';
+import DynamicPricing from './pages/DynamicPricing';
+import Home from './pages/Home';
+import Register from './components/Register';
+import Login from './components/Login';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cancel-booking" element={<CancelBooking />} />
+        <Route path="/shops" element={<Shops />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/report-missing-bag" element={<ReportMissingBag />} />
+        <Route path="/dynamic-pricing" element={<DynamicPricing />} />
+        <Route path="/register" element={<Register />} /> {/* Register route */}
+        <Route path="/login" element={<Login />} /> {/* Login route */}
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
